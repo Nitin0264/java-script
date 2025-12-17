@@ -70,16 +70,16 @@
 // b=a % 10;
 // console.log(b);
 
-let a=123;
-let b=0;
-
-for(i=1;i<=3;i++)
-{
-    b= a%10
-    console.log(b);
-    a=parseInt(a/10)
-
-}
+//let a=123;
+//let b=0;
+//
+//for(i=1;i<=3;i++)
+//{
+//    b= a%10
+//    console.log(b);
+//    a=parseInt(a/10)
+//
+//}
 
 // a = 500
 // console.log(c)
@@ -89,6 +89,109 @@ for(i=1;i<=3;i++)
 // }
 // xyz()
 // console.log(c) -->
+
+
+
+
+//logical operator
+
+//&& || !
+
+// login -> username and password
+
+// username -> database hain b ya nahi
+
+// if(!username){
+//     return 'username not found'
+// }
+
+// password -> db check karega 
+
+// if(!password){
+//     return "invalide credentials"
+// }
+
+// admin 
+// if(admin.username == "codeware" && admin.password =="1234"){
+
+// }
+
+// relational operator
+
+// assignment operator
+
+// let c = 10
+// c =c+10
+// c +=10
+
+// conditional statements
+
+// simple if
+// if else
+// nested if-if-else else if else
+// ladder if-else-if
+
+// if(!(10>5)){
+//     console.log("simple if hain")
+// }
+
+// if(10<5){
+//     console.log("nahi hai")
+// }else if(10==16){
+//     console.log("hain")
+// }else{
+//     console.log("ladder")
+// }
+
+// if(10>5){
+//     if(10>10){
+//         console.log("nahi hain")
+//     }else{
+//         console.log("hain")
+//     }
+// }
+
+
+// for(let i = 0;i<=10;i++){
+//     console.log(i)
+// }
+
+// income Tax
+
+// 0-2.5l 0%
+// 2.5- 5l 10%
+// 5l - 10l 20%
+
+// >20l 30%
+var tax = 0;
+let j = prompt("Please enter your annual income (in Rupees):" );
+
+// j =600000
+// 250000
+// 250000
+// 100000*20
+console.log("Your entered annual income is:", j);
+if( j <=250000)
+{     t=j*0;
+    console.log("you are free of income tax",t)
+    
+}
+else if(j>250000 && j<=500000){
+    t = 250000*0 + (j-250000)*0.10
+    console.log("your earning is more than 2.5l so you have to pay 10% income tax", t)
+
+}
+else if(j<=1000000)
+{   
+    t=j/20;
+  console.log("your earning is more than 5 laks so you have to pay 20% income tax")
+}
+else{
+    console.log("you are earning more than 20 lakhs so you have  to pay the 30% tax")
+}
+// let color = +prompt("enter the color to change the background:" );
+// console.log("color that you have enterd is:")
+
         </script>
     </body>
 </html>

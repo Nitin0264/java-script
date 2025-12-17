@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .container
+{
+ height: 100vh;
+ width: 100%;
+ background-color: antiquewhite;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-align:center;
+}
+</style>
+</head>
+<body>
+      <div class="container">
+ <input id="number1"  type="number" placeholder="type R">
+ 
+ <input id="number2"  type="number" placeholder="type G">
+ <input id="number3"  type="number" placeholder="type B">
+  <button>submit</button>      
+</div>
+
+<script>
+    let contain1 = document.getElementsByClassName("container")[0];
+
+    let input = document.getElementById('text')
+
+
+    function RGB()
+    {
+        contain.style.backgroundColor = text.value
+    }
+//string literals
+//str
+</script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    
+.container{
+     height: 100vh;
+     width: 100%;
+     background-color: aliceblue;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <input type="number" placeholder="enter the R" id="in1">
+        <input type="number" placeholder="enter the G" id="in2">
+        <input type="number" placeholder="enter the B" id="in3">
+        <input type="number" placeholder="enter opacity" id="in4">
+        <button onclick="fun();"  type="submit">Submit</button>
+    </div>
+            
+ 
+
+    <script>
+  
+
+  let a =  document.getElementsByClassName("container")[0]
+  let b =  document.getElementById('in1')
+  let c =   document.getElementById('in2')
+   let d =  document.getElementById('in3')
+    let e =   document.getElementById('in4')   
+
+
+   function fun()
+   {
+                 let R = b.value
+                 let G = c.value
+                 let B = d.value
+                 let A = e.value;
+                  a.style.backgroundColor =`rgba(${R},${G},${B},${A})`
+                  console.log(R)
+                  console.log(G)
+                  console.log(B)
+   }
+    </script>
+</body>
+</html>
+
