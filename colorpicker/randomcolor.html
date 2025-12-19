@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <style>
+        .container
+        {
+            height: 100Vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        button
+        {
+            background-color: rgba(131, 180, 223, 0.733);
+            height: 45px;
+            color: white;
+            font-weight: bold;
+            width: 600px;
+        }
+      </style>
+</head>
+
+<body>
+         <div class="container">
+          <button onclick="clickMe()">click Me</button>
+         </div> 
+             
+         <script>
+           let c = document.getElementsByClassName("container")[0]
+               function clickMe()
+               {
+
+                 
+            let r = Math.ceil(Math.random()*255)
+             let g = Math.ceil(Math.random()*255)
+              let b = Math.ceil(Math.random()*255)
+             c.style.backgroundColor = `rgb(${r},${g},${b})`
+               }
+
+         </script>
+</body>
+</html>

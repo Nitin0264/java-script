@@ -44,11 +44,11 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
     
 .container{
      height: 100vh;
@@ -58,20 +58,24 @@
      justify-content: center;
      align-items: center;
 }
+input
+{
+    height: 40px;
+    width: 200px;
+    background-color: rgba(210, 105, 30, 0.548);
+}
 </style>
-</head>
-<body>
-    <div class="container">
-        <input type="number" placeholder="enter the R" id="in1">
-        <input type="number" placeholder="enter the G" id="in2">
-        <input type="number" placeholder="enter the B" id="in3">
-        <input type="number" placeholder="enter opacity" id="in4">
-        <button onclick="fun();"  type="submit">Submit</button>
-    </div>
-            
- 
+    </head>
+    <body>
+        <div class="container">
+            <input type="number" placeholder="enter the R from 0-255" id="in1">
+            <input type="number" placeholder="enter the G from 0-255" id="in2">
+            <input type="number" placeholder="enter the B from 0-255" id="in3">
+            <input type="number" placeholder="enter opacity" id="in4">
+            <button onclick="fun();" type="submit">Submit</button>
+        </div>
 
-    <script>
+        <script>
   
 
   let a =  document.getElementsByClassName("container")[0]
@@ -83,16 +87,20 @@
 
    function fun()
    {
-                 let R = b.value
-                 let G = c.value
-                 let B = d.value
-                 let A = e.value;
-                  a.style.backgroundColor =`rgba(${R},${G},${B},${A})`
-                  console.log(R)
-                  console.log(G)
-                  console.log(B)
+                 b = b.value
+                  c= c.value
+                 d = d.value
+                 e = e.value;
+                 if(b>=0 && b<=255 ||c>=0 && c<=255 || d>=0 && d<=255|| e>=0 && e<=1){
+                  a.style.backgroundColor =`rgba(${b},${c},${d},${e})`
+                  console.log(b)
+                  console.log(c)
+                  console.log(d)
+                  console.log(e)
+                 }else{
+                    alert("invalid number")
+                 }
    }
     </script>
-</body>
+    </body>
 </html>
-

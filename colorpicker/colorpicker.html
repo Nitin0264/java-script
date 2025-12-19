@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        .container
+        {
+            height: 100vh;
+            width: 100%;
+            background-color: aquamarine;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+        }
+        select
+        {
+            height: 40px;
+            width: 200px;
+            border-radius: 20px;
+            background-color: rgba(165, 42, 42, 0.486);
+            color: white;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <select onchange="changeColor()" name id="select">
+                <option value="red" id="rei">red</option>
+                <option value="blue" id="blui">blue</option>
+                <option value="white" id="whi">white</option>
+                <option value="black" id="bli">black</option>
+                <!-- <option value="" id="ali">aliceblue</option> -->
+            </select>
+        </div>
+        <script>
+                  
+               let A = document.getElementsByClassName("container")[0]
+               let R = document.querySelector("select")
+
+
+              function changeColor(){
+                console.log("ghi")
+               R = R.value
+                A.style.backgroundColor = R
+
+              }
+            //  if(red == {$red} )
+            //  {
+            //         console.log (`color matched`)
+            //  }
+                 </script>
+    </body>
+</html>
