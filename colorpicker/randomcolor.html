@@ -16,9 +16,10 @@
         {
             background-color: rgba(131, 180, 223, 0.733);
             height: 45px;
-            color: white;
+            /* color: white; */
             font-weight: bold;
             width: 600px;
+            border-radius: 40px;
         }
       </style>
 </head>
@@ -30,6 +31,7 @@
              
          <script>
            let c = document.getElementsByClassName("container")[0]
+           let z=document.querySelector('button')
                function clickMe()
                {
 
@@ -37,9 +39,13 @@
             let r = Math.ceil(Math.random()*255)
              let g = Math.ceil(Math.random()*255)
               let b = Math.ceil(Math.random()*255)
-             c.style.backgroundColor = `rgb(${r},${g},${b})`
-               }
+              let a= Math.ceil(Math.random()*1)  
 
+             c.style.backgroundColor = `rgb(${r},${g},${b})`
+             z.style.color =`rgb(${g},${b},${r})`
+             z.style.backgroundColor =`rgb(${r},${g},${b})`
+               }
+            
          </script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <style>
+    .container
+    {    height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:yellowgreen;
+    }
+    button{
+        height: 45px;
+        width: 220px;
+        color: white;
+        background-color:lightcoral;
+    }
+ </style>
+
+    </head>
+    <body>
+        <div class="container">
+            <button onclick="fun();" class="buttonn">
+                Click me to know your salary
+            </button>
+        </div>
+        <script>
+
+
+              
+
+        let z = document.querySelector('button')
+              
+        function fun()
+        {
+       let salary = prompt("enter your saalary here  so i can provide you the tax index on basis of your salary")
+         
+         salary = Number(salary);
+
+         let pf = salary * 0.12;
+         let hra = salary *0.20;
+         let netSalary = (salary + hra) -pf;
+
+        //   let pf = basicSalary * 0.12;       // 12% PF
+        // let hra = basicSalary * 0.20;      // 20% House Rent Allowance
+        // let netSalary = (basicSalary + hra) - pf;
+        // function salar()
+        // {
+            if(salary <= 50000)
+        {
+            console.log("your net salary will be",netSalary)
+        }
+        else if(salary>50000 && salary<=120000)
+        {
+            console.log("your net salary will we",netSalary)
+        } 
+        else if(salary>120000 && salary<=350000)
+        {
+            console.log("your net salary will be",netSalary)
+        }
+        else
+        {
+            console.log("your net salary will be ",netSalary)
+        }
+        
+    }
+    
+      </script>
+    </body>
+</html>
