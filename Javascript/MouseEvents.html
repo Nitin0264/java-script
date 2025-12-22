@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .main{
+            height: 100vh;
+            background-color: aqua;
+            position: relative;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: rebeccapurple;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+    </head>
+    <body>
+        <!-- <label for="MouseEvents"></label>
+    <ul>
+        <li>MouseMove</li>
+        <li>MouseEnter</li>
+        <li>MouseLeave</li>
+    </ul> -->
+
+        <div class="main">
+                <div class="box"></div>
+        </div>
+
+        <script>
+            let m =document.querySelector(".main")
+            let b =document.querySelector(".box")
+            m.addEventListener("mousemove",function(e){
+                b.style.left = e.x +"px"
+                b.style.top = e.y +"px"
+                console.log(e.x)
+                console.log(e.y)
+            })
+
+            // left =50%
+            // top = 50%
+            // transform: translate(-50%,-50%);
+
+        </script>
+
+    </body>
+</html>
