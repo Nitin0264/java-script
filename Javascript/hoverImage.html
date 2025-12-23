@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            main{
+                height: 100vh;
+                position: relative;
+            }
+            h1{
+                position: relative;
+                font-size: 5rem;
+            }
+            .d1{
+                height: 200px;
+                border-bottom: 2px solid black;
+                position: relative;
+            }
+            img{
+                height: 100px;
+                top: 0;
+                width: 100px;
+                border-radius: 50%;
+                opacity: 0;
+                position: absolute; 
+                transform: translate(-50%,-50%);
+                z-index: -1;
+            }
+
+            /* 16 */
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="d1">
+                <h1>hello</h1>
+                <img
+                    src=" https://i.ytimg.com/vi/XthgjRSr9Sc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBDVv-Rh3h0Aau0C2q7DQU52vUxMg"
+                    alt="son of thors">
+            </div>
+            <div class="d1">
+                <h1>hello</h1>
+                <img
+                    src=" https://blog.alltheanime.com/wp-content/uploads/2017/03/A-Silent-Voice-2.png"
+                    alt=" shoko">
+
+            </div>
+            <div class="d1">
+                <h1>hello</h1>
+                <img
+                    src="https://i.pinimg.com/736x/30/19/c3/3019c37cb59e1709c4f0565643a16799.jpg"
+                    alt="the god ussop">
+            </div>
+            <div class="d1">
+                <h1>hello</h1>
+                <img src="https://miro.medium.com/0*EI99uc77JAGo_QIu.jpg"
+                    alt="thorfin">
+
+            </div>
+        </main>
+
+        <script>
+            let x = document.querySelectorAll(".d1")
+            
+            x.forEach((i)=>{
+                console.log(i.childNodes)
+                i.addEventListener("mouseenter",function(e){
+                    console.log('enter')
+                    i.childNodes[3].style.opacity = 1
+                })
+                i.addEventListener("mouseleave",function(e){
+                    console.log('leave')
+                    i.childNodes[3].style.opacity = 0
+                })
+                i.addEventListener("mousemove",function(e){
+                    // console.log(e.x)
+                    i.childNodes[3].style.left = `${e.x}px`
+                    i.childNodes[3].style.top = `${e.y}px`
+                    // console.log(e)
+
+                })
+            })
+        </script>
+    </body>
+</html>
