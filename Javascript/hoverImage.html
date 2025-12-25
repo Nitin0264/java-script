@@ -69,9 +69,10 @@
             let x = document.querySelectorAll(".d1")
             
             x.forEach((i)=>{
-                console.log(i.childNodes)
+                console.log(i.childNodes)                                          
                 i.addEventListener("mouseenter",function(e){
                     console.log('enter')
+
                     i.childNodes[3].style.opacity = 1
                 })
                 i.addEventListener("mouseleave",function(e){
@@ -80,12 +81,46 @@
                 })
                 i.addEventListener("mousemove",function(e){
                     // console.log(e.x)
-                    i.childNodes[3].style.left = `${e.x}px`
-                    i.childNodes[3].style.top = `${e.y}px`
+                    // i.childNodes[3].style.left = `${e.x}px`
+                    // i.childNodes[3].style.top = `${e.y}px`
                     // console.log(e)
+  
+
+                    // e.offsetY gives the Y position inside the DIV
+                    i.childNodes[3].style.left = `${e.offsetX}px`;
+                    i.childNodes[3].style.top = `${e.offsetY}px`;
+                    // e.offsetX gives the X position inside the DIV
 
                 })
             })
         </script>
     </body>
 </html>
+
+
+
+<!-- 
+x.forEach((i) => {
+    // Get the image inside this specific div
+    let img = i.querySelector("img");
+
+    i.addEventListener("mouseenter", function() {
+        img.style.opacity = 1;
+    });
+
+    i.addEventListener("mouseleave", function() {
+        img.style.opacity = 0;
+    });
+
+    i.addEventListener("mousemove", function(e) {
+        // Get the position of the div relative to the viewport
+        let boxLocation = i.getBoundingClientRect();
+
+        // Math: Mouse Position - Box Starting Position = Local Position
+        let localX = e.clientX - boxLocation.left;
+        let localY = e.clientY - boxLocation.top;
+
+        img.style.left = `${localX}px`;
+        img.style.top = `${localY}px`;
+    });
+}); -->
