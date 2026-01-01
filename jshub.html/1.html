@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Light Bulb Toggle</title>
+    <style>
+        /* General Page Styling */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #222;
+            font-family: sans-serif;
+            transition: background 0.5s;
+        }
+
+        /* The Bulb Container */
+        .bulb-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: #444; /* Off color */
+            border-radius: 50%;
+            margin-bottom: 30px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        /* The "On" State Styling */
+        .bulb-container.on {
+            background-color: #ffdb13;
+            box-shadow: 0 0 50px #ffdb13, 0 0 100px #ffdb13;
+        }
+
+        /* Bulb Base (Socket) */
+        .bulb-container::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 30px;
+            background: #888;
+            border-radius: 0 0 5px 5px;
+        }
+
+        /* Button Styling */
+        button {
+            padding: 12px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #eee;
+            color: #222;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="bulb" class="bulb-container"></div>
+    <button id="toggleBtn">Turn ON</button>
+
+    <script>
+        // Select elements
+        const bulb = document.getElementById('bulb');
+        const btn = document.getElementById('toggleBtn');
+        
+        let isOn = false;
+
+        // Add Click Event Listener
+        btn.addEventListener('click', () => {
+            // Toggle the boolean state
+            isOn = !isOn;
+
+            if (isOn) {
+                bulb.classList.add('on');
+                btn.textContent = 'Turn OFF';
+                document.body.style.backgroundColor = '#333';
+            } else {
+                bulb.classList.remove('on');
+                btn.textContent = 'Turn ON';
+                document.body.style.backgroundColor = '#222';
+            }
+        });
+    </script>
+
+</body>
+</html>
