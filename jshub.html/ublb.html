@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .div-main
+    {
+      height: 100vh;
+      width:100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+    }
+    .div-in
+    {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+    }
+    .button-1
+    {
+     
+      height: 35px;
+      width: 85px;
+    }
+
+  </style>
+</head>
+<body>
+  
+
+  <div id="in" class="div-main">
+    <div id="in1" class="div-in"></div>
+    <button class="button-1">oN/OFF</button>
+  </div>
+
+
+
+  <script>
+     let bulb =document.getElementById('in1')
+     let btn = document.getElementsByClassName('button-1')
+     let isOn =false
+
+      btn.addEventListener('click', () => {
+            // Toggle the boolean state
+            isOn = !isOn;
+
+            if (isOn) {
+                bulb.classList.add('on');
+                btn.textContent = 'Turn OFF';
+                document.body.style.backgroundColor = '#333';
+            } else {
+                bulb.classList.remove('on');
+                btn.textContent = 'Turn ON';
+                document.body.style.backgroundColor = '#222';
+            }
+        });
+  </script>
+</body>
+</html>
