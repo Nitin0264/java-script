@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
 
- 
-  <script>
-  [
+    <script>
+ let obj =  [
   {
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -252,6 +250,25 @@
     }
   }
 ]
+  
+
+// for(let i=0;i<obj.length;i++){
+//     console.log(obj[i]);
+// }
+let search = 3;
+
+obj.find( i=>console.log(i.id== search)) ;
+obj.slice(0,5).map( i=>console.log(i.title))
+// map()
+// sort()
+// find()
+// filter()
+// forEach()
+
+// tolowerCase()
+// toUppercase()
+// slice()
+// includes()
   </script>
-</body>
+  </body>
 </html>
