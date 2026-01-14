@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- booleans are the another type of value in js
+ 
+these the the only of two types
+
+1-   true
+
+2-   false
+4
+
+-->
+
+    <!-- eg -->
+    <!-- 3 > 5    
+it will returen the value true  -->
+
+    <script>
+
+
+console.log(typeof true);
+// above code will return the  type as boolean 
+
+// and if we put true in template string then  it will be type of string not a boolean 
+
+
+// eg
+
+console.log(typeof 'true')
+// this will retern the type as the strings
+console.log(3 > 5);
+
+// in js we use ==  and the  === to check the equal 
+// eg
+
+console.log(5 == '5.00')
+// this will retuen true even this both are not equal because the second number is the string 
+
+
+// this leads to the use of the ===
+// === triple equal check the eqaul as well as the data type
+// if data types and the value both are same then it will return the value true else false 
+
+// eg
+
+console.log(5 === '5.00')
+// it will return the false because the one is a integer and the other one is the string
+
+
+console.log( 3 > 5-5)
+// its 3>0 so true
+
+
+// useing the 
+if(true)
+{
+console.log('hello');
+}
+    //this true will run the code will if we will add false  it will not run eg
+
+    if(false)
+    {
+         console.log('this  will not be displayed cause of the')
+    }
+    // using else too
+
+    if(false)
+    {
+      console.log('it will not be displayed')
+
+    }
+  else
+  {
+    console.log('hey how are you  doing')
+  }
+
+
+  if(30 >= 18)
+  {
+    console.log('you are eligible to derive')
+  }
+  else
+  {
+    conosle.log('you need to be above 17 to derive a car')
+  }
+
+// we can have multiple statement for  if else
+// eg
+
+
+const age = 15;
+
+if( age >= 16 )
+{
+  console.log('you are eligible to derive ')
+}
+else if(age  >= 14)
+{
+console.log('you are just a single year behind')
+
+}
+else{
+  console.log('you are not eligible to derive')
+}
+
+// we are going to build the rock paper scissor 
+
+// go to supersimpe.dev/projects/rock paper scissors
+
+
+
+
+
+
+
+
+
+
+// operators
+// logical operators
+
+// && and operator
+console.log(true && true);
+// this will run both the true
+
+
+console.log(0.2>= 0 &&   0.2<1/3);
+// it will show true
+
+
+// the second logical operator is or 
+// ||
+console.log(true || false)
+// only one side needs to be true will show true
+
+
+
+// the third operator is the not operator
+
+console.log(!true)
+// this will ans the false or you can say that it will flip the vlaue after the not
+
+
+
+
+
+// thruthy and falsy value
+
+if(0)
+{
+console.log('truthy')
+}
+// 0 is a falsy value  0 '' NAN undefined and null all are the  falsy value
+// and the remaning ones are the truthy
+
+
+const cartQuantity = 5;
+
+if(cartQuantity)
+{
+console.log('cart has products')
+}
+
+
+
+console.log(!0)
+
+
+console.log('text'  / 5)
+// above calculation is not a number so its NAN
+
+
+
+
+let variable1;
+console.log(variable1);
+// variable 1 is undefined
+
+
+
+// ternery operator
+
+const result  = true ? 'truthy' : 'falsy'
+console.log(result)
+
+
+// first value is like condition if its true it will run else the false part
+// its same as the if else condition
+
+
+
+
+const result1  = 0 ? 'truthy' : 'falsy'
+console.log(result1)
+
+// if we change the value to false it will now run the else part
+
+
+
+// using end operator
+
+
+
+false  && console.log('hello')
+// its a guard operator because its garding the 2nd statement of it 
+
+const message = 5 && 'hello';
+console.log(message)
+// this time it will run the whole code 
+
+
+
+// using or operator
+
+
+// it check for only single side need to be true to run
+
+
+
+const currency  =  'EUR' ||  'USD';
+console.log(currency)
+
+
+// another way
+
+const currency2  =  undefined ||  'USD';
+console.log(currency2)
+  </script>
+  </body>
+</html>
