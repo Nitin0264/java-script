@@ -31,36 +31,17 @@
         width: 100%;
          /* border: solid 1px black; */
       }
-      body{
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-        flex-direction: column;
-      }
-      input
-      {
-        height: 45px;
-        width: 600px;
-        text-align: center;
-      }
    
     </style>
   </head>
   <body>
-
-    <input type="search" placeholder="search here"
-      id="search-box">
 
     <div class="container">
       <!-- <div class="card"></div> -->
     </div>
 
     <script>
-
-
-   let box =  document.querySelector("#search-box")
-      let obj = [
+    let obj = [
   {
     "id": 1,
     "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -302,40 +283,20 @@
     }
   }
 ]  
+      let a = document.querySelector('.container')
 
+      obj.map((o,index)=>{
+        // console.log(`${o} and index ${index}`)
 
-      let a = document.querySelector('.container')   
-
-     function display(obj){
-      a.innerHTML = ""
-       obj.map((o,index)=>{
-         // console.log(`${o} and index ${index}`)
-         
-         let card  = document.createElement("div")
-        //  card.innerHTML = ""
+        let card = document.createElement("div")
         card.classList = "card"
+        
         card.innerHTML +=`<h2>${o.title}</h2> <br> <img src="${o.image}" /> <br> <h3>${o.price}</h3>`
         a.appendChild(card)
-        
+
         // console.log(o)
       })
-      
-      
-      
-    }
-    box.addEventListener("input",()=>{
-      let searchValue = box.value.toLowerCase()
-      let x = obj.slice()
-      if(searchValue){
-          // console.log(x)
-          x= x.filter(i=>i.title.toLowerCase().includes(searchValue))
-          console.log(x)
-          display(x)
-        }
-        console.log(searchValue)
-      })
-
-      display(obj)
+    
     </script>
 
   </body>
