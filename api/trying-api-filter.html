@@ -4,13 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+      <style>
+
+      .l
+      {
+        background-color: coral;
+        color: yellow;
+        height: 100px;
+        width: 10px;
+
+
+      }
+      .card-div
+      {
+        border: 1px solid black;
+        height: 200px;
+        width: 270px;
+        object-fit: contain;
+        border-radius: 10px;
+  
+      }
+     
+      .container
+      {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 14px;
+      }
+      </style>
+
   </head>
   <body>
 
     <div class="container">
-      <p></p>
+    
     </div>
       <script>
+
+
 
 
 let c = document.querySelector(".container")
@@ -44,13 +78,33 @@ let c = document.querySelector(".container")
   { id: 20, make: "Audi", model: "Q5", year: 2024, engine_type: "2.0L TFSI", fuel_type: "Petrol", transmission: "Automatic", body_style: "SUV" },
 
 ];
+  // console.log(`the values of i  ${i.model} ${ i.year}`)
   
-console.log(api)
-
-let a =  1;
- console.log(`the value of a ${a}`)
-
-
-  </script>
-  </body>
+  
+  
+  api.map((i) => {
+    
+  let card = document.createElement("div")
+  let z = document.createElement("h1")
+  let y = document.createElement("h2")
+  let x= document.createElement("h3")
+  
+  
+  card.appendChild(z);
+  card.appendChild(y);
+  card.appendChild(x);
+  
+  
+  card.classList = "card-div"
+  // this will assign the class to the div
+  z.innerText = i.engine_type,
+  y.innerText = i.fuel_type,
+  x.innerText = i.yearx
+  
+  c.appendChild(card);
+})
+</script>
+</body>
 </html>
+
+
