@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbBHffj2TOApnf_FW7XY8l0f9yLPq_j4YkTQ&s">
+  <title>objects</title>
+</head>
+<body>
+
+<!-- an object groups multiple  values together -->
+
+  <script>
+    const product = {
+      name:'socks',
+      price: 1090,
+    };
+
+    // in left we call property and in right we call them value
+    // leave att 4:18;
+   console.log(typeof product)
+
+  console.log(product.name);
+  console.log(product.price);
+  // we use . to access the innner value
+   
+
+  product.name = 'cotton socks'
+  console.log(product)
+  // reassigning the value 
+
+  product.newProperty  = true;
+  console.log(product);
+
+  delete product.newProperty;
+  console.log(product);
+
+
+
+  // part 2
+
+  const product2 = {
+    name: 'shirt',
+    // [delivery-time]: '1 day',
+     'delivery2-time': '2 days',
+    // here we cant use thm directly
+    rating :{
+      stars : 4.5,
+      count : 87,
+    },
+    fun: function function1()
+    {
+       console.log('function inside the object')
+      //  function is just another type of value
+    }
+
+  }
+  console.log(product2);
+  console.log(product2.name);
+
+  // another way to access value
+
+  console.log(product2['name']);
+  // called as the bracket notations
+
+  // console.log(product2.delivey-time)
+  // this will provide the error
+  // js things this dash is a minus sign
+  
+  console.log(product2['delivery-time'])
+
+
+  console.log(product2.rating)
+
+  // if we have to go furhter in
+  console.log(product2.rating.stars)
+
+
+  product2.fun();
+  // this will run the function inside of the object
+
+  console.log(typeof console)
+  // this is a method
+  // another ex of method is a math.random
+  // they are called as the built in object
+
+
+
+
+// now we will learn about json
+
+// turnig our js poroduct in json
+
+
+console.log(JSON.stringify(product2))
+// it will convert prouct 2into json
+// json support ""   not ''  and json does not support the  function
+
+
+console.log(typeof JSON.stringify(product2))
+
+const jsonString =  JSON.stringify(product2)
+
+// json  -> js object 
+
+console.log(JSON.parse(jsonString));
+// first we store the json into the constant then we parse that back into  js object
+
+
+// local storage used to store our value
+
+
+
+console.log('hello'.length)
+console.log('hello'.toUpperCase());
+// js have a specil feature called auto boxing
+// automatically wraps string into special object which have the property
+
+// objects are the refrencs
+const object1  = {
+  message: 'hello',
+
+ 
+};
+const object2 = object1;
+// this is called copy by refrence
+
+object1.message = 'good job!';
+console.log(object1);
+
+// the 2nd one also changed
+
+console.log(object2);
+
+// we cant compre objects directly
+
+const object3 = {
+  message: 'good job!'
+
+};
+console.log(object3 === object1);
+// they contain the reference so they result in false other wise they are true
+console.log(object2 === object1);
+// these two veribles have the same references so they are true
+
+
+
+// shortcuts for objects
+
+
+const object4 = {
+  message  : 'good job!',
+  price : 799
+}
+// const message = object4.message;
+const {message,price} = object4;
+console.log(message)
+console.log(price)
+// these above both the code work the same
+// this is called the d structuring shortcut
+
+
+// the short hand property
+
+
+const object5 = {
+  // message : message  
+  // this above code works the same as the code below this is called as the short hand property
+  message
+}
+// this will takes whatever is there in the message into message here
+
+console.log(object5);
+
+const object6 = {
+   message, 
+  //  method : function function1()
+  //  {
+  //   console.log('method');
+  //  }
+  // all above code will do the same as below this is called as the short hand method
+   method(){
+    console.log('method')
+   }
+}
+object6.method();
+
+// short hand method
+
+
+  </script>
+  
+  
+</body>
+</html>
