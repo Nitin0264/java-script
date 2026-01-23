@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <label><input type="checkbox" value="Men" name="" class="men">Men</label>
+        <label><input type="checkbox" value="Women" name="" class="women">Women</label>
+        <label><input type="checkbox" value="Kids" name="" class="kids">Kids</label>
+    </div>
+
+    <script>
+        let selected = []
+
+            document.querySelectorAll("input").forEach(i=>{
+                i.addEventListener("change",function(){
+                    if(this.checked)
+                    // this will pick the recent runing object which is the all the 3 inputs
+                
+                {
+                        selected.push(i.value)
+                        console.log(selected)
+                    }else{
+                        
+                        selected = selected.filter(it=>it!=i.value)
+                        // console.log(`else part ${selected}`)
+                        console.log(selected)
+                    }
+                })
+                
+            })
+       
+    </script>
+</body>
+</html>
