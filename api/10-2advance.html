@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox Filter</title>
+    <style>
+        .display-area {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 50px;
+        }
+        .item-tag {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <label><input type="checkbox" value="Men" class="category-check">Men</label>
+        <label><input type="checkbox" value="Women" class="category-check">Women</label>
+        <label><input type="checkbox" value="Kids" class="category-check">Kids</label>
+    </div>
+
+    <div id="result" class="display-area">
+        Selected: None
+    </div>
+
+    <script>
+        let selected = [];
+        const resultDiv = document.getElementById("result");
+
+        document.querySelectorAll(".category-check").forEach(i => {
+            i.addEventListener("change", function() {
+                if (this.checked) {
+                    selected.push(this.value);
+                } else {
+                    selected = selected.filter(it => it != this.value);
+                }
+                
+                // 2. CALL THE DISPLAY FUNCTION
+                updateScreen();
+            });
+        });
+
+        function updateScreen() {
+        
+            if (selected.length === 0) {
+                resultDiv.innerHTML = "Selected: None";
+            } else {
+                // Map the array into HTML tags
+                resultDiv.innerHTML = "Selected: " + selected.map(item => 
+                    `<span class="item-tag">${items.value}</span>`
+                ).join("");
+            }
+        }
+    </script>
+</body>
+</html>
