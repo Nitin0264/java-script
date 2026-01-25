@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+  .product
+  {
+    margin: 10px;
+    border: 1px solid;
+    padding: 12px;
+  }
+
+  </style>
+</head>
+<body>
+
+  <h1>product List</h1>
+
+   <div class="controls">
+    <input type="text" placeholder="type here" id="searchText">
+   </div>
+
+   <select name="" id="category">
+    <option value="">All categories</option>
+    <option value="electronics">electronics</option>
+    <option value="clothing">clothing</option>
+    <option value="books">books</option>
+   </select>
+
+
+   <select name="" id="price">
+     <option value="">price</option>
+     <option value="low">low to high</option>
+     <option value="high">high to low</option>
+   </select>
+
+   <div class="product"></div>
+
+  <script>
+
+
+  let sB = document.getElementById("searchText");
+    // piocked search button
+   let cate = document.getElementById("category")
+  //  picked category with multiple options
+   let Price = document.getElementById("price")
+  //  same here picked price with all three of the options
+  let pL = document.getElementsByClassName("product")[0]
+  //  for product List
+
+
+   const product = [
+    
+            {name:"smartPhone",category:"electronics",Price:15000},
+            {name:"laptop",category:"electronics",Price:45000},
+            {name:"jeans",category:"clothing",Price:500},
+            {name:"t-shirt",category:"clothing",Price:1000},
+            {name:"jsbooks",category:"books",Price:200},
+            {name:"html books",category:"books",Price:150}
+]
+
+  function displayProducts(data)
+  {
+    pL.innerHTML = " ";
+    if(data.length == 0)
+  {
+    pL.innerHTML = "<h3>products not found</h3>"
+    return;
+  }
+
+  // this is else if data is present
+  data.forEach(e =>
+{
+  // console.log(e.category)     
+  console.log(e.name)
+
+  let div = document.createElement("div");
+  div.classList = "product"
+  // here we provide this div same class name as above div because above div will create a large div but this one creats div for all the propert simulataneously      or you can se it creats the cards uniqly for every product
+  div.innerHTML = `<strong>Name:  </strong>${e.name} <br>
+  <strong>Catageory:  </strong>${e.category} <br>
+  <strong>price:  </strong>${e.Price} `
+  
+  pL.appendChild(div);
+  // every data from the div will append to th pL
+})
+  }
+
+
+
+  function applyFilters()
+  {
+    let filtered = [...product]
+    //  this time we are aleredy uisng the filter here and applying filter further into  the product
+    // spread operator this will filter all the products into the filter
+    console.log(filtered)
+
+    const sT = sB.value.toLowerCase(); 
+    if(sT)
+  {
+   filtered =  filtered.filter(p=>p.name.toLowerCase().includes(sT))
+  }
+
+  let category = cate.value
+  if(category)
+  {
+    console.log(category)
+   filtered =  filtered.filter(p=>p.category==category)
+  }
+
+ let p = Price.value
+ if(p == "low")
+ {
+   filtered.sort((a,b)=> a.Price -b.Price)
+ }
+ if(p=="high")
+ {
+  filtered.sort((a,b)=> b.Price - a.Price)
+ }
+
+  displayProducts(filtered)
+  }
+  // event listner
+  sB.addEventListener('input',applyFilters);
+  cate.addEventListener("change",applyFilters);
+  Price.addEventListener("change",applyFilters);
+  // when we will input our applyFilter() function will run 
+ displayProducts(product);
+
+
+
+
+
+
+  </script>
+
+  </div>
+</body>
+</html>
