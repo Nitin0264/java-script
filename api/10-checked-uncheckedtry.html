@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+     <label><input type="checkbox"  value="electronics" name="" class="men">"electronics"</label>
+     <!-- label>input:checkbox.men+{"men"}  this is the shortcut to create this -->
+     
+
+     <label><input type="checkbox" value="clothing" name="" class="women">"clothing"</label>
+     
+     
+     
+     <label><input type="checkbox" value="books" name="" class="kids">"books"</input></label>
+
+    </div>
+    
+
+    
+
+<script>
+
+const products = [
+      { id: 1, name: "Smartphone", category: "electronics", price: 15000 },
+      { id: 2, name: "Laptop", category: "electronics", price: 45000 },
+      { id: 3, name: "Wireless Headphones", category: "electronics", price: 3000 },
+      { id: 6, name: "Jeans", category: "clothing", price: 500 },
+      { id: 7, name: "T-shirt", category: "clothing", price: 1000 },
+      { id: 11, name: "JS Books", category: "books", price: 200 },
+      { id: 12, name: "HTML Books", category: "books", price: 150 },
+      { id: 16, name: "Coffee Maker", category: "home", price: 2000 },
+      { id: 17, name: "Air Fryer", category: "home", price: 6000 }
+    ];
+
+    let selected = [];
+    document.querySelectorAll("input").forEach(i=>
+        {
+            i.addEventListener("change",function()
+        {
+            if(this.checked){
+                selected.push(i.value)   
+                console.log(selected)       
+              }
+              else{
+                selected =selected.filter(it=> it!=i.value)
+                {
+                    console.log(selected)
+                }
+              }
+        })
+        }
+    ) 
+    function displayProducts()
+    {
+
+        
+    }
+
+</script>
+    
+</body>
+</html>
+
+
+    <!-- <div class="container">
+     <label><input type="checkbox" name="" value="men" class="men">"men"</label>
+     
+     <label><input type="checkbox" name="" value="women" class="women">"women"</label>
+     
+     <label><input type="checkbox" name="" value="child" class="child">"child"</label>
+
+       
+    </div>  
+
+     <script>
+
+      let selected = [];
+      document.querySelectorAll("input").forEach(i=>{
+        i.addEventListener("change",function(){
+            if(this.checked)
+        {
+            selected.push(i.value)
+            console.log(selected)
+        }
+        else{
+            selected = selected.filter(it=>it!=i.value)
+            console.log(selected)
+        }
+        })
+      }) -->
