@@ -7,12 +7,47 @@
   <title>Document</title>
 </head>
 <body>
+      <button> hello </button>
   
-
+   <button class="js-button">Second Button</button>
 
 
   <script>
-// shiping at 5 hours and 27 minutes 
+
+  console.log(document.title);
+  document.title = 'changed';
+  console.log(document.body);
+  console.log(typeof document.body)
+
+  console.log(document.body.innerHTML);
+    // ṭhis controlls all the html inside the html
+  // document.body.innerHTML = 'changed';
+  // this can not only help in changing the text inside the html but it can also change the code inside the HTML
+
+    // document.body.innerHTML = '<button>Good Job!</button>';
+
+  // the document. body will bring the whole body tag into the the javaScript
+
+      
+
+      // document.body.innerHTML = 'Hello';
+      // document.title = 'Good Job!'
+      
+      
+    // console.log(document.querySelector('button'));
+    console.log(document.querySelector('button').innerHTML);
+    // this above code will provide us the html inside the button element
+
+     document.querySelector('button')
+        .innerHTML = 'Changed'
+
+      // console.log(document.querySelector('.js-button'))
+    //  this changed the goood job to the changed
+
+    // const buttonElement = document.querySelector(".js-button")
+
+    // console.log(buttonElement)
+    // this are doing the same thing as above
 
   </script>
 </body>
