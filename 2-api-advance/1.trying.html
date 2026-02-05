@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Filter System</title>
+
+  <style>
+    /* Basic layout for the checkbox area */
+    .container {
+      display: flex;
+      gap: 30px;
+    }
+
+    /* Styling for each individual product card */
+    .product-card {
+      margin: 15px;
+      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    /* Spacing for search and dropdowns */
+    .controls {
+      margin: 20px 0;
+    }
+
+    /* Header and controls wrapper */
+    .countt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+    }
+
+    /* The main area where products appear */
+    #productDisplay {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="countt">
+    <h1>Product List</h1>
+
+    <div class="container">
+      <label><input type="checkbox" value="electronics" class="category-check"> Electronics</label>
+      <label><input type="checkbox" value="clothing" class="category-check"> Clothing</label>
+      <label><input type="checkbox" value="books" class="category-check"> Books</label>
+    </div>
+
+    <div class="controls">
+      <input type="text" placeholder="Search by name..." id="searchText">
+    </div>
+
+    <select id="categorySelect">
+      <option value="">All categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="clothing">Clothing</option>
+      <option value="books">Books</option>
+      <option value="home">Home & Kitchen</option>
+    </select>
+
+    <select id="priceSort">
+      <option value="">Sort by Price</option>
+      <option value="low">Low to High</option>
+      <option value="high">High to Low</option>
+    </select>
+  </div>
+
+  <div id="productDisplay"></div>
+
+  <script>
+    // 1. DATA: Our list of products
+    const products = [
+      { id: 1, name: "Smartphone", category: "electronics", price: 15000 },
+      { id: 2, name: "Laptop", category: "electronics", price: 45000 },
+      { id: 3, name: "Wireless Headphones", category: "electronics", price: 3000 },
+      { id: 6, name: "Jeans", category: "clothing", price: 500 },
+      { id: 7, name: "T-shirt", category: "clothing", price: 1000 },
+      { id: 11, name: "JS Books", category: "books", price: 200 },
+      { id: 12, name: "HTML Books", category: "books", price: 150 },
+      { id: 16, name: "Coffee Maker", category: "home", price: 2000 },
+      { id: 17, name: "Air Fryer", category: "home", price: 6000 }
+    ];
+
+    // 2. SELECTIONS: Grab HTML elements so we can use them in JS
+    let selectedCategories = []; // Array to store checked checkbox values
+    const sB = document.getElementById("searchText"); // Search box
+    const cate = document.getElementById("categorySelect"); // Dropdown select
+    const Price = document.getElementById("priceSort"); // Sort select
+    const pL = document.getElementById("productDisplay"); // The display div
+
+    // 3. CHECKBOX LOGIC: Listen for clicks on checkboxes
+    document.querySelectorAll(".category-check").forEach(input => {
+      input.addEventListener("change", function() {
+        if (this.checked) {
+          selectedCategories.push(this.value); // Add value to array if checked
+        } else {
+          // Remove value from array if unchecked
+          selectedCategories = selectedCategories.filter(item => item !== this.value);
+        }
+        applyFilters(); // Re-run filters every time a box is clicked!
+      });
+    });
+
+    // 4. DISPLAY FUNCTION: Put products on the screen
+    function displayProducts(data) {
+      pL.innerHTML = ""; // Clear the display area first
+
+      if (data.length === 0) {
+        pL.innerHTML = "<h3>No products found matching those filters</h3>"; // Message for empty results
+        return;
+      }
+
+      data.forEach(item => {
+        let div = document.createElement("div"); // Create a new div
+        div.classList = "product-card"; // Give it the CSS class for styling
+        div.innerHTML = `
+          <strong>Name: </strong>${item.name} <br>
+          <strong>Category: </strong>${item.category} <br>
+          <strong>Price: </strong>₹${item.price}
+        `; // Fill the div with product data
+        pL.appendChild(div); // Add this new div into the main display area
+      });
+    }
+
+    // 5. THE BRAIN: The filter function
+    function applyFilters() { 
+      // Start with a full copy of the products
+      let filtered = [...products];
+
+      // A. Text Search Filter
+      const searchTerm = sB.value.toLowerCase();
+      if (searchTerm) {
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(searchTerm));
+      }
+
+      // B. Checkbox Filter (Multiple categories)
+      if (selectedCategories.length > 0) {
+        // Only keep product if its category is inside our "selectedCategories" array
+        filtered = filtered.filter(p => selectedCategories.includes(p.category));
+      }
+
+      // C. Dropdown Category Filter
+      let dropCategory = cate.value;
+      if (dropCategory) {
+        filtered = filtered.filter(p => p.category === dropCategory);
+      }
+
+      // D. Price Sorting
+      let sortType = Price.value;
+      if (sortType === "low") {
+        filtered.sort((a, b) => a.price - b.price); // Mathematical sort: Small to Big
+      } else if (sortType === "high") {
+        filtered.sort((a, b) => b.price - a.price); // Mathematical sort: Big to Small
+      }
+
+      // Finally, send the filtered list to the display function
+      displayProducts(filtered);
+    }
+
+    // 6. EVENT LISTENERS: Run the brain whenever an input changes
+    sB.addEventListener('input', applyFilters); // Runs on every letter typed
+    cate.addEventListener("change", applyFilters); // Runs when dropdown changes
+    Price.addEventListener("change", applyFilters); // Runs when sort changes
+
+    // 7. INITIAL RUN: Show all products when the page first opens
+    displayProducts(products);
+
+  </script>
+</body>
+</html>

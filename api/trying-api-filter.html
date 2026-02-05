@@ -1,54 +1,45 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <style>
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRecirEAcS6Gcj11YOHbY-g3x4UiVBOMAmrdA&s">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 
-      .l
-      {
-        background-color: coral;
-        color: yellow;
-        height: 100px;
-        width: 10px;
-
-
-      }
-      .card-div
-      {
-        border: 1px solid black;
-        height: 200px;
-        width: 270px;
-        object-fit: contain;
-        border-radius: 10px;
+    <style>
+        *{padding: 0;margin: 0;}
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            background-color: aqua;
+        }
+        .card {
+            background-color: white;
+            height: 200px;
+            width: 200px;
+            display: flex;
+            padding: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
   
-      }
-     
-      .container
-      {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        gap: 14px;
-      }
-      </style>
 
-  </head>
-  <body>
-
-    <div class="container">
-    
-    </div>
-      <script>
+  <div class="container">
+  </div>
 
 
+   <input id="input" type="text" placeholder="Enter Title">
+    <button onclick="Search()">Submit</button>
 
 
-let c = document.querySelector(".container")
-    let api =  [
+  <script>
+    let product = [
   // --- TOYOTA ---
   { id: 1, make: "Toyota", model: "Camry", year: 2024, engine_type: "2.5L I4", fuel_type: "Petrol", transmission: "Automatic", body_style: "Sedan" },
   { id: 2, make: "Toyota", model: "Corolla", year: 2023, engine_type: "1.8L I4", fuel_type: "Petrol", transmission: "CVT", body_style: "Sedan" },
@@ -78,104 +69,61 @@ let c = document.querySelector(".container")
   { id: 20, make: "Audi", model: "Q5", year: 2024, engine_type: "2.0L TFSI", fuel_type: "Petrol", transmission: "Automatic", body_style: "SUV" },
 
 ];
-  // console.log(`the values of i  ${i.model} ${ i.year}`)
+
+
+let con = document.querySelector(".container")
+function display (p)
+{
+  con.innerHTML = " "
   
+  p.map((element) => {
+
+    let d = document.createElement("div")
+    d.classList = "card"
+    d.innerHTML = `engine type :<p>${element.engine_type}</p> <p>year: ${element.year}</p>   <p>model:${element.model}</p> `
+      con.appendChild(d)
+  })  
+}
+ function search(){
+
+  let searchValue = document.querySelector('#input').value.toUpperCase()
+  let copyProducts = products.slice()
+  if(searchValue)
+ {
+
+  copyProducts = copyProducts.filter(i=> i.title.toUpperCase().include(searchValue))
+  console.log(copyProducts)
+  display(copyProducts)
+ }
+ }
+
+
+ 
+  </script>
   
-  
-  api.map((i) => {
-    
-  let card = document.createElement("div")
-  let z = document.createElement("h1")
-  let y = document.createElement("h2")
-  let x= document.createElement("h3")
-  
-  
-  card.appendChild(z);
-  card.appendChild(y);
-  card.appendChild(x);
-  
-  
-  card.classList = "card-div"
-  // this will assign the class to the div
-  z.innerText = i.engine_type,
-  y.innerText = i.fuel_type,
-  x.innerText = i.yearx
-  
-  c.appendChild(card);
-})
-</script>
 </body>
 </html>
- -->
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cars api</title>
- </head>
- <body>
 
-<div class="container">
 
-</div>
+<!-- // function Search(){
+  //     // console.log()
+  //     let searchValue = document.querySelector("#input").value.toUpperCase()
+  //     let copyProducts = products.slice()
+  //     if(searchValue){
+    //         // alert("tab he chalunga jab kuch search hoga")
+    //         copyProducts =copyProducts.filter(i=>i.title.toUpperCase().includes(searchValue))
+    //         console.log(copyProducts)
+    //         Display(copyProducts)
+    //     }
+    // } -->
   
-
-
-
-<script>
-
-let con = document.getElementsByClassName(".container")
-
-let api =  [
-  // --- TOYOTA ---
-  { id: 1, make: "Toyota", model: "Camry", year: 2024, engine_type: "2.5L I4", fuel_type: "Petrol", transmission: "Automatic", body_style: "Sedan" },
-  { id: 2, make: "Toyota", model: "Corolla", year: 2023, engine_type: "1.8L I4", fuel_type: "Petrol", transmission: "CVT", body_style: "Sedan" },
-  { id: 3, make: "Toyota", model: "Hilux", year: 2022, engine_type: "2.8L Turbo", fuel_type: "Diesel", transmission: "Manual", body_style: "Pickup" },
-  { id: 4, make: "Toyota", model: "RAV4", year: 2024, engine_type: "2.5L Hybrid", fuel_type: "Petrol", transmission: "eCVT", body_style: "SUV" },
-  { id: 5, make: "Toyota", model: "Land Cruiser", year: 2023, engine_type: "3.3L V6", fuel_type: "Diesel", transmission: "Automatic", body_style: "SUV" },
-  
-  // --- FORD ---
-  { id: 6, make: "Ford", model: "F-150", year: 2024, engine_type: "3.5L V6", fuel_type: "Petrol", transmission: "Automatic", body_style: "Pickup" },
-  { id: 7, make: "Ford", model: "Ranger", year: 2023, engine_type: "2.0L Bi-Turbo", fuel_type: "Diesel", transmission: "Automatic", body_style: "Pickup" },
-  { id: 8, make: "Ford", model: "Mustang", year: 2024, engine_type: "5.0L V8", fuel_type: "Petrol", transmission: "Manual", body_style: "Coupe" },
-  { id: 9, make: "Ford", model: "Explorer", year: 2022, engine_type: "3.0L V6", fuel_type: "Petrol", transmission: "Automatic", body_style: "SUV" },
-  { id: 10, make: "Ford", model: "Everest", year: 2023, engine_type: "3.0L V6", fuel_type: "Diesel", transmission: "Automatic", body_style: "SUV" },
-
-  // --- BMW ---
-  { id: 11, make: "BMW", model: "3 Series", year: 2023, engine_type: "2.0L I4", fuel_type: "Petrol", transmission: "Automatic", body_style: "Sedan" },
-  { id: 12, make: "BMW", model: "5 Series", year: 2024, engine_type: "3.0L I6", fuel_type: "Diesel", transmission: "Automatic", body_style: "Sedan" },
-  { id: 13, make: "BMW", model: "X5", year: 2023, engine_type: "4.4L V8", fuel_type: "Petrol", transmission: "Automatic", body_style: "SUV" },
-  { id: 14, make: "BMW", model: "M4", year: 2024, engine_type: "3.0L Twin-Turbo", fuel_type: "Petrol", transmission: "Manual", body_style: "Coupe" },
-  { id: 15, make: "BMW", model: "X3", year: 2022, engine_type: "2.0L I4", fuel_type: "Diesel", transmission: "Automatic", body_style: "SUV" },
-
-  // --- AUDI ---
-  { id: 16, make: "Audi", model: "A4", year: 2023, engine_type: "2.0L TFSI", fuel_type: "Petrol", transmission: "S-Tronic", body_style: "Sedan" },
-  { id: 17, make: "Audi", model: "Q7", year: 2024, engine_type: "3.0L TDI", fuel_type: "Diesel", transmission: "Tiptronic", body_style: "SUV" },
-  { id: 18, make: "Audi", model: "R8", year: 2023, engine_type: "5.2L V10", fuel_type: "Petrol", transmission: "Automatic", body_style: "Coupe" },
-  { id: 19, make: "Audi", model: "A6", year: 2022, engine_type: "2.0L TDI", fuel_type: "Diesel", transmission: "Automatic", body_style: "Sedan" },
-  { id: 20, make: "Audi", model: "Q5", year: 2024, engine_type: "2.0L TFSI", fuel_type: "Petrol", transmission: "Automatic", body_style: "SUV" },
-
-];
-function Display(p)
-{
-  con.innerHTML = ""
-  p.map ((elem)=>
-{
-  let dev = document.createElement("div")
-  dev.classList = "card"
-  dev.innerHTML = `<p> ${elem.engine_type} </p>  <h2> ${elem.model}</h2>  <h2>${elem.fuel_type}</h2>`
-  con.appendChild(dev)
-})
-}
-function search()
-{
-
-}
-
-
-</script>
- </body>
- </html>
-
+    <!-- function Display(p) {
+    //     con.innerHTML ="" 
+    //     p.map((elem) => {
+    //         let d = document.createElement("div")
+    //         d.classList = "card"
+    //         d.innerHTML = `<p>${elem.title}</p>`
+    //         con.appendChild(d)
+    //     })
+    // }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@ const pageBackground = document.querySelector(".container");
 const colorDropdown = document.getElementById("themeSelector");
 
 // 2. LISTEN: We tell the dropdown to wait for a "change"
-colorDropdown.addEventListener("change", function() {
+  .addEventListener("change", function() {
     
     // 3. CAPTURE: We grab the value the user just clicked
     const newColor = colorDropdown.value;
@@ -34,6 +34,41 @@ colorDropdown.addEventListener("change", function() {
     // 5. CREATIVE EXTRA: Log it to the console to see it working
     console.log(`The user chose: ${newColor}`);
 });
+</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <div class="container">
+    <select id="themeSelector">
+        <option value="aquamarine">Select a Color</option>
+        <option value="tomato">Tomato Red</option>
+        <option value="slateblue">Slate Blue</option>
+        <option value="#2f3640">Midnight Dark</option>
+        <option value="white">Pure White</option>
+    </select>
+</div>
+
+
+<script>
+     let box = document.querySelector('.container');
+     let color = document.querySelector('#themeSelector')
+
+  color.addEventListener('change',()=>
+{
+     let value = color.value;
+    box.style.backgroundColor = value;
+    console.log(`you are chosing the color :- ${value} for the text`)
+})
+// these both are the correct
 </script>
 </body>
 </html>

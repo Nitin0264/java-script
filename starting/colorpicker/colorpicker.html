@@ -27,29 +27,22 @@
     <body>
         <div class="container">
             <select onchange="changeColor()" name id="select">
-                <option value="red" id="rei">red</option>
-                <option value="blue" id="blui">blue</option>
-                <option value="white" id="whi">white</option>
-                <option value="black" id="bli">black</option>
+                <option value="red" id="red">red</option>
+                <option value="blue" id="blue">blue</option>
+                <option value="white" id="white">white</option>
+                <option value="black" id="black">black</option>
                 <!-- <option value="" id="ali">aliceblue</option> -->
             </select>
         </div>
-        <script>
-                  
-               let A = document.getElementsByClassName("container")[0]
-               let R = document.querySelector("select")
+          <script>
+            function changeColor()
+            {
+               let A  = document.querySelector('.container')
+            let color = document.querySelector('#select')
 
-
-              function changeColor(){
-                console.log("ghi")
-               R = R.value
-                A.style.backgroundColor = R
-
-              }
-            //  if(red == {$red} )
-            //  {
-            //         console.log (`color matched`)
-            //  }
-                 </script>
-    </body>
+            color = color.value
+             A.style.backgroundColor =  color;
+            }
+</script>                  
+              
 </html>
