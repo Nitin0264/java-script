@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  Men<input  onchange="categoryHandeling(this)"  type="checkbox"  value="men">
+  Women<input  onchange="categoryHandeling(this)" type="checkbox"  value="women">
+  Kids<input  onchange="categoryHandeling(this)" type="checkbox"  value="kids">
+
+
+  <script>
+  //   let arr = [];
+  //  function categoryHandeling(e)
+  //  {
+  //       if(e.checked)
+  //     {
+  //           arr.push(e.value);
+  //           console.log(arr)
+  //     }
+  //     else{
+  //       arr = arr.filter(i =>i!=e.value)
+  //       console.log('after filter',arr)
+  //     }
+  //  }
+
+  let arr = [];
+function categoryHandeling(e)
+{
+  if(e.checked)
+{
+  arr.push(e.value)
+  console.log(arr)
+}
+else
+{
+  arr =  arr.filter(i => i!= e.value)
+  console.log('after the else',arr)
+}
+}
+
+  </script>
+</body>
+</html>
