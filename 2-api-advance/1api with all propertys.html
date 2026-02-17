@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .container
+    {
+      display: flex;
+      gap: 30px;
+
+    }
+
+  .product
+  {
+    margin: 30px;
+    border: 1px solid;
+    padding: 12px;
+  }
+  .controls
+  {
+        margin:20px 0;
+
+  }
+  .countt
+  {
+    display: flex;
+    gap: 30px;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="countt">
+
+  <center>  <h1 >product List</h1>   </center>
+    <div class="container">
+
+    <label><input type="checkbox" value="electronics" name="" class="electronics">"electronics"</label>
+   
+    <label><input type="checkbox" value="clothing" name="" class="clothiong">"clothing"</label>
+    
+    <label><input type="checkbox" value="books" name="" class="books">"books"</label>
+
+    </div>
+
+   <div class="controls">
+    <input type="text" placeholder="type here" id="searchText">
+   </div>
+
+   <select name="" id="category">
+    <option value="">All categories</option>
+    <option value="electronics">electronics</option>
+    <option value="clothing">clothing</option>
+    <option value="books">books</option>
+   </select>
+
+
+   <select name="" id="price">
+     <option value="">price</option>
+     <option value="low">low to high</option>
+     <option value="high">high to low</option>
+   </select>
+
+
+
+  </div>
+    <div class="product"></div>
+  
+
+  <script>
+   const product = [
+  //    
+  { id: 1, name: "Smartphone", category: "electronics", price: 15000 },
+  { id: 2, name: "Laptop", category: "electronics", price: 45000 },
+  { id: 3, name: "Wireless Headphones", category: "electronics", price: 3000 },
+  { id: 4, name: "Smart Watch", category: "electronics", price: 5000 },
+  { id: 5, name: "Bluetooth Speaker", category: "electronics", price: 2500 },
+  
+  // Clothing
+  { id: 6, name: "Jeans", category: "clothing", price: 500 },
+  { id: 7, name: "T-shirt", category: "clothing", price: 1000 },
+  { id: 8, name: "Hoodie", category: "clothing", price: 1500 },
+  { id: 9, name: "Sneakers", category: "clothing", price: 2200 },
+  { id: 10, name: "Leather Belt", category: "clothing", price: 800 },
+
+  // Books
+  { id: 11, name: "JS Books", category: "books", price: 200 },
+  { id: 12, name: "HTML Books", category: "books", price: 150 },
+  { id: 13, name: "React Guide", category: "books", price: 400 },
+  { id: 14, name: "Node.js Mastery", category: "books", price: 350 },
+  { id: 15, name: "Python Basics", category: "books", price: 300 },
+
+  // Home & Kitchen
+  { id: 16, name: "Coffee Maker", category: "home", price: 2000 },
+  { id: 17, name: "Air Fryer", category: "home", price: 6000 },
+  { id: 18, name: "Desk Lamp", category: "home", price: 1200 },
+  { id: 19, name: "Water Bottle", category: "home", price: 450 },
+  { id: 20, name: "Yoga Mat", category: "fitness", price: 900 }
+];
+
+let sB = document.getElementById("searchText");
+    // piocked search button
+   let cate = document.getElementById("category")
+  //  picked category with multiple options
+   let Price = document.getElementById("price")
+  //  same here picked price with all three of the options
+  let pL = document.getElementsByClassName("product")[0]
+  //  for product List
+   let check = document.querySelectorAll("label")
+ 
+
+  let selected = [];
+
+document.querySelectorAll("input").forEach( i=>
+  {
+    i.addEventListener("click",function()
+  {
+    if(this.checked)
+    // input.checked if my input is checked
+  {
+    selected.push(i.value)
+    console.log(selected)
+    filterCategory()
+  }
+  else{
+    selected = selected.filter(it => it!=i.value)
+    console.log(selected)
+  }
+  })
+  }
+
+)
+
+
+
+function filterCategory(){
+  let p = product.slice()
+
+  if(selected.length > 0){
+    p = p.filter(i=>selected.includes(i.category))
+       displayProducts(p);
+       conosle.log("this one is for the p value",p);
+      // console.log(p)
+  }
+}
+
+
+ function displayProducts(data)
+  {
+    pL.innerHTML = " ";
+    if(data.length == 0)
+  {
+    pL.innerHTML = "<h3>products not found</h3>"
+    return;
+  }
+  // this is else if data is present
+  data.forEach(e =>
+{
+  // console.log(e.category)
+  console.log(e.name)
+
+  let div =document.createElement("div");
+  div.classList = "product"
+  // here we provide this div same class name as above div because above div will create a large div but this one creats div for all the propert simulataneously      or you can se i 1 2+ t creats the cards uniqly for every product
+  div.innerHTML = `<strong>Name:  </strong>${e.name} <br>
+  <strong>Catageory:  </strong>${e.category} <br>
+  <strong>price:  </strong>${e.price} `
+  
+  pL.appendChild(div);
+  // every data from the div will append to th pL
+})
+  }
+
+  function applyFilters()
+  {
+    let filtered = [...product]
+    //  this time we are aleredy uisng the filter here and applying filter further into  the product
+    // spread operator this will filter all the products into the filter
+    console.log("this is a spread opetatoe",filtered)
+
+    const sT = sB.value.toLowerCase(); 
+
+    if(sT)
+  {
+   filtered =  filtered.filter(p=>p.name.toLowerCase().includes(sT))
+  }
+
+  let category = cate.value
+  if(category)
+  {
+    console.log(category)
+   filtered =  filtered.filter(p=>p.category==category)
+  }
+
+ let p = Price.value
+ if(p == "low")
+ {
+   filtered.sort((a,b)=> a.price - b.price)
+ }
+ if(p=="high")
+ {
+  filtered.sort((a,b)=> b.price - a.price)
+ }
+
+  displayProducts(filtered)
+  }
+  // event listner
+  sB.addEventListener('input',applyFilters);
+  cate.addEventListener("change",applyFilters);
+  Price.addEventListener("change",applyFilters);
+  // p.addEventListener("change",applyFilters);
+  // when we will input our applyFilter() function will run 
+ displayProducts(product);
+ 
+
+  </script>
+
+  </div>
+</body>
+  

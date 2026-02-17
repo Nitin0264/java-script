@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced function</title>
+</head>
+<body>
+            
+  <button onclick="" class="js-button">Click</button>
+
+
+      <script>
+   /*
+
+   const buttonElement   =  document.querySelector('.js-button')
+    
+
+
+      buttonElement.addEventListener('click',()=>
+    {
+      console.log('Clicked')
+    })
+                // advantages let add multiple listner at ones like the above one + the below one
+      // it has two parameter 1 what type of  intraction we want to listeen for   eg  event is click
+  //  add eventListner let us runsome code when we intract with something
+  
+   const eventListner = ()=>{
+    console.log('Clicked2')
+  
+    }; 
+
+    buttonElement.addEventListener('click',eventListner)
+  
+
+    // storing the event listner in an variable named eventListner and then removng all the function code and directly swapping them each other 
+
+    // buttonElement.removeEventListener('click',()=>{
+  
+    // });
+    buttonElement.removeEventListener('click',eventListner)
+
+
+console.log('-------------------------------------------------------')
+
+/*function greeting()
+          {
+            console.log('hello')
+          }
+          greeting();
+
+
+          const num = 2;
+          // const function1 = function greeting()
+          // {
+          //        console.log('Hello2');
+          // }
+          // console.log(function1)
+          // // we are storing the function in a variable
+
+          // console.log(typeof function1)
+          // // function
+
+          // function1();
+          // calling the function using the variable name
+
+          // now we can access the funciton using the variable name so no need of the funtion name so here
+
+
+          //   the above function provide us the hoisting means can access the function before the  creating the function  
+
+          //  called as anonomus function
+            const function1 = function()
+          {
+                 console.log('Hello2');
+          }
+          console.log(function1)
+          // we are storing the function in a variable
+              
+          // in this case hoisting does not work
+          console.log(typeof function1)
+          // function
+          function1();
+
+
+
+          const object = {num:2,
+            fun:function ()
+            {
+              console.log('Hello Three')
+            }
+          }
+          object.fun();
+          
+
+          function Display(param)
+          {
+            console.log(param)
+          }
+               Display(2);
+              //  we are passing a value into the function
+
+
+
+              // fuction into the function
+
+
+              function  run(param)
+              {
+              param();
+              }
+              run(function()
+              {
+                console.log('hello Four')
+              })
+
+
+              // settimeout allow to runa funtion in afuture
+              setTimeout(function()
+             {
+            //   console.log('Time Out')
+            //   console.log('Time Out 2')
+            }, 3000);
+            // this function  will call in 3 initial-scale
+            // advantage is that it just set the timer 
+
+
+
+            // asyncronius code  means computer wont wait for the ABOVE code to finish before going to next code and the vice versa
+
+            console.log('Next Line')
+
+              //  set interval
+
+              setInterval(function(){
+                // console.log('interval')
+              },4000)
+              // this will function after every 4 second automatic
+
+              console.log('Next Line')
+
+
+          */
+
+              // Next one
+
+      
+              // [
+              //   'make dinner',
+              //   'wash dishes',
+              //   'watch tv'
+              // ].forEach(function(value,index){
+              //   if(value === 'wash dishes')
+              // {
+              //   return;
+              //   // will skip index 1
+              // }
+              //   console.log(value , index);
+              // });
+              // doing all this using the arrow function
+      // save value to the parameter and then loop through each value 
+
+
+          // [
+          //       'make dinner',
+          //       'wash dishes',
+          //       'watch tv'
+          //     ].forEach ((value,index) => {
+          //       if(value === 'wash dishes')
+          //     {
+          //       return;
+          //       // will skip index 1
+          //     }
+          //       console.log(value , index);
+          //     });
+
+
+      // const regularFunction = function(){
+      //   console.log('Hello')
+      // }
+              
+      // // arrow function
+    
+
+      // const arrowFunction = ()=>{
+      //   console.log('Hello');
+      // }
+      //    arrowFunction();
+
+  //        const regularFunction = function(param,param2){
+  //       console.log('Hello')
+  //       return 5;
+  //     }
+              
+    
+
+  //     const arrowFunction = (param,param2)=>{
+  //       console.log('Hello');
+  //       return 5;
+  //     }
+  //        arrowFunction();
+
+
+  //       //  const oneParam  = (param)=>
+  //       //  {
+  //       //     console.log(param + 1);
+
+  //       //  }
+  //       //  oneParam(2);
+
+  //       //  same way to write the above code
+
+
+
+
+  //          const oneParam  = param=>
+  //         //  we can use the param without the brackrts here and the param is the parameter here same as the above
+  //        {
+  //           console.log(param + 1);
+
+  //        }
+  //        oneParam(2);
+
+  //       //  const oneLine = () =>{ return 2+3;  }
+  //       //  another way to write this 
+
+  //       const oneLine = () => 2 + 3;
+  //       console.log(oneLine());
+  //       // one line arrow function
+
+
+  // // arro function insdie the object
+
+
+  //      const object2 = {
+  //        method: ()=>{
+
+  //        },
+  //        method(){
+  //         // same as above short hand method
+  //        }
+  //      };*/
+  
+        console.log([1,-3,5].filter((value,index)=> {
+        //   if(value >= 0)
+        //  {
+        //   return true;
+
+        //  }
+        //  else{
+        //     return false;
+        //  }
+             return value >=0;
+         }))
+        //  creates new array if true add the value into the new array otherwise not
+
+    
+ 
+       console.log([1,1,3].map((value,index)=>{
+                 return value * 2;
+        }));
+        // map tranform an array into an another array
+            
+
+        // shortcuts of arrow function
+
+
+         console.log([1,1,3].map(value => value * 2));
+        //  do the same work as above in a single lines
+            </script>
+    </body>
+</html>
