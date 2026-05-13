@@ -1,1 +1,0 @@
-alert("enternal File")
